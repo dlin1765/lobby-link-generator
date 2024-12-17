@@ -1,10 +1,15 @@
 from pynput import keyboard
 import requests
 from bs4 import BeautifulSoup
+import pyperclip
+import sys
 import re
 
-url = 'https://steamcommunity.com/id/bongbobg/'
+# url = 'https://steamcommunity.com/id/bongbobg/'
+url = sys.argv[1]
 class MyException(Exception): pass
+
+# my exe installer needs to store the locations for all .bat files created so that it can edit them
 
 def on_release(key):
     print(key.char +  ' released\n')
@@ -18,7 +23,6 @@ def on_activate():
         response = requests.get(url)
         if response.status_code == 200:
             soup = BeautifulSoup(response.content, 'html.parser')
-            print(type(soup))
             gameStatus = soup.find_all('div', {"class": "profile_in_game"})
             if len(list(gameStatus[0].children)) == 3:
                 print('no game open or not online')
@@ -31,6 +35,7 @@ def on_activate():
                 else:
                     print('lobby detected')
                     print(joinGameTag.contents[1]['href'])
+                    pyperclip.copy(joinGameTag.contents[1]['href'])
                 return None
         else:
             print('Error:', response.status_code)
