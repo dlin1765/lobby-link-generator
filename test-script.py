@@ -3,6 +3,7 @@ import requests
 from bs4 import BeautifulSoup
 import pyperclip
 import sys
+import os
 import re
 
 # url = 'https://steamcommunity.com/id/bongbobg/'
@@ -10,6 +11,8 @@ url = sys.argv[1]
 class MyException(Exception): pass
 
 # my exe installer needs to store the locations for all .bat files created so that it can edit them
+# print(os.getcwd()) to get path to self
+# all i need is the file path to the game 
 
 def on_release(key):
     print(key.char +  ' released\n')
