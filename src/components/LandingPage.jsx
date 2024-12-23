@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import '../styles/LandingPage.css'
+// import batchFile from '../assets/lobby-gen-test.bat'
 
 function LandingPage(){
     const [fieldText, setFieldText] = useState('');
@@ -7,14 +8,27 @@ function LandingPage(){
     const [steamURL, setSteamURL] = useState('');
     const [gamePath, setGamePath] = useState('');
     const [submitted, setSubmitted] = useState(false);
+    const [bashContent, setBashContent] = useState('');
 
     function handleText(){
         if(fieldText != '' && fieldText2 != ''){
-            setSteamURL(fieldText);
-            setGamePath(fieldText2);
             setSubmitted(true);
-            console.log(steamURL);
-            console.log(gamePath);
+            console.log(fieldText);
+            console.log(fieldText2);
+            let pathConvert = '';
+            for(let i = 0; i < fieldText2.length; i++){
+                console.log("i fire")
+                if(fieldText2[i] == "/"){
+                    pathConvert = pathConvert + '\\';
+                }
+                else{
+                    pathConvert = pathConvert + fieldText2[i];
+                }
+            }
+            console.log(pathConvert);
+            const text = `@ECHO OFF\nsetlocal\ncd \"${pathConvert}\"\nstart \"TEKKEN 8.exe\" \"${pathConvert}\\TEKKEN 8.exe\"\npython ${pathConvert}\\test-script.py ${fieldText}`;
+            const blob = new Blob([text], { type: 'text/plain' });
+            setBashContent(URL.createObjectURL(blob));
         }
     }
 
@@ -35,7 +49,7 @@ function LandingPage(){
                         
                     </form>
                     <button className="submitButton" onClick={handleText}>submit</button>
-                    {submitted ? <button>link to download</button> : <></>}
+                    {submitted ? <a href={bashContent} download={'lobby-gen-test.bat'}>link to download</a> : <></>}
                 </div>
             </div>
         </>
