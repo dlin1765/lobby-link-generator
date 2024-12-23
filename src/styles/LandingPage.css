@@ -1,0 +1,16 @@
+.landingPage{
+    height: 100vh;
+    width: 100vw;
+    background-color: antiquewhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fields{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 5vh;
+    padding: 16px;
+}
