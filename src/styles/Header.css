@@ -1,0 +1,42 @@
+.headerFlex{
+    display: flex;
+}
+
+.headerParent{
+    background-color: var(--headerColor);
+    display: flex;
+    flex:1 1 0;
+    height: 5vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12vw;
+}
+
+.headerTitle{
+    color: var(--textColor);
+}
+
+.contactContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.contact{
+    color: var(--textColor);
+}
+
+.logoContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap:1vw;
+}
+
+.logo{
+    width: 16px;
+    height: 16px;
+    pointer-events: none;
+}

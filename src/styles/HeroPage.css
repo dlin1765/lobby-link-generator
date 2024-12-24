@@ -1,0 +1,23 @@
+.mainBody{
+    background-color: var(--mainColorShade);
+    padding: 0 12vw;
+}
+
+.heroSectionContainer{
+    display: flex;
+
+}
+
+.heroTextContainer{
+    display:flex;
+    flex-direction: column;
+}
+
+.heroTag{
+    font-size: var(--bigSize);
+}
+
+
+.heroVid{
+    width: 600px;
+}

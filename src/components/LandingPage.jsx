@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Header from './Header';
 import '../styles/LandingPage.css'
 // import batchFile from '../assets/lobby-gen-test.bat'
 
@@ -41,6 +42,7 @@ function LandingPage(){
 
     return(
         <>
+            <Header/>
             <div className="landingPage">
                 <div className="fields">
                     <form>
