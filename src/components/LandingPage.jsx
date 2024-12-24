@@ -27,7 +27,7 @@ function LandingPage(){
                 }
             }
             console.log(pathConvert);
-            const text = `@ECHO OFF\nsetlocal\ncd \"${pathConvert}\"\nstart \"TEKKEN 8.exe\" \"${pathConvert}\\TEKKEN 8.exe\"\ntest-script.exe ${fieldText}\npause`;
+            const text = `@ECHO OFF\nsetlocal\ncd \"${pathConvert}\"\nstart \"TEKKEN 8.exe\" \"${pathConvert}\\TEKKEN 8.exe\"\ntest-script.exe ${fieldText}`;
             const blob = new Blob([text], { type: 'text/plain' });
             setBashContent(URL.createObjectURL(blob));
         }
