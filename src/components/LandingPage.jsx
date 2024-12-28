@@ -2,7 +2,10 @@ import { useState } from 'react';
 import Header from './Header';
 import InstructionsSection from './InstructionsSection';
 import InputComponent from './InputComponent';
-import '../styles/LandingPage.css'
+//import executable from '../assets/lobby-generator.exe';
+// import fileContent from '../assets/lobby-generator.py';
+import '../styles/LandingPage.css';
+
 // import batchFile from '../assets/lobby-gen-test.bat'
 
 // const step2Input = <input type="text" className="steamURL" onChange={getFormChange}/>
@@ -40,6 +43,7 @@ function LandingPage(){
     const [gamePath, setGamePath] = useState('');
     const [submitted, setSubmitted] = useState(false);
     const [bashContent, setBashContent] = useState('');
+    const [bashText, setBashText] = useState('');
     const [stepNum, setStepNum] = useState(0);
 
     function moveForwards(){
@@ -129,7 +133,7 @@ function LandingPage(){
             stepText={stepText[5]}
             instructions={[]}
             inputFields={[]}
-            inputFunctions={[()=>{}, moveBackwards]}
+            inputFunctions={[moveForwards, moveBackwards]}
             stepNum={5}
         >
             <div className="lastStepTxt">
@@ -139,16 +143,38 @@ function LandingPage(){
                 <div>
                     <a href={bashContent} download={'lobby-gen.bat'}>lobby-gen.bat</a>
                     <div className="lastStepTxt">Preview: </div>
-                    <div className = 'preview'>{bashContent}</div>
+                    <div className = 'preview'>{bashText}</div>
                 </div>
             : 
                 <div>Missing either Steam URL, game path, or game name</div>
 
             }
+            {/*{fieldText != '' && fieldText2 != '' && gameName != '' ? 
+                <div>
+                    <a href={'../assets/lobby-generator.exe'} download={'lobby-generator.exe'}>lobby-generator.exe</a>
+                    <div className="lastStepTxt">Preview: </div>
+                    <div className = 'preview'>
+                        <pre>{fileContent}</pre>
+                    </div>
+                </div>
+            : 
+                <div>Missing either Steam URL, game path, or game name</div>
 
+            }*/}
             
 
         </InstructionsSection>,
+        <InstructionsSection
+            stepText={stepText[6]}
+            instructions={['Everything should be good to go! You can close this tab or set it up for other games.']}
+            inputFunctions={[()=>{}, moveBackwards]}
+            stepNum={6}
+        >
+            <div>
+                Set up for another game
+            </div>
+            
+        </InstructionsSection>
 
     ]
 
@@ -168,12 +194,12 @@ function LandingPage(){
                 }
             }
             const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nlobby-generator.exe ${fieldText}`;
-            console.log(text);
-            // const blob = new Blob([text], { type: 'text/plain' });
-            // setBashContent(URL.createObjectURL(blob));
-            const text2 = 'steam://joinlobby/1217060/109775244563878939/76561198402013855'
-            const blob2 = new Blob([text2], { type: 'text/plain' });
-            setBashContent(URL.createObjectURL(blob2));
+            const blob = new Blob([text], { type: 'text/plain' });
+            setBashText(text);
+            setBashContent(URL.createObjectURL(blob));
+            // const text2 = 'steam://joinlobby/1217060/109775244563878939/76561198402013855'
+            // const blob2 = new Blob([text2], { type: 'text/plain' });
+            // setBashContent(URL.createObjectURL(blob2));
         }
     }
 
@@ -193,6 +219,8 @@ function LandingPage(){
                 return steps[4];
             case 5:
                 return steps[5];
+            case 6:
+                return steps[6];
         }
     }
 
@@ -206,17 +234,6 @@ function LandingPage(){
                 renderStepState()
             }
             <div className="buttons">
-            </div>
-            <div className="landingPage">
-                <div className="fields">
-                    <form>
-                        <input type="text" className="steamURL" onChange={getFormChange}/>
-                        <input type="text" className="gamePath" onChange={getFormChange2}/>
-                        
-                    </form>
-                    <button className="submitButton" onClick={handleText}>submit</button>
-                    {submitted ? <a href={bashContent} download={'lobby-gen-test.bat'}>link to download</a> : <></>}
-                </div>
             </div>
         </>
     );
