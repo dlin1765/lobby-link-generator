@@ -169,8 +169,11 @@ function LandingPage(){
             }
             const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nlobby-generator.exe ${fieldText}`;
             console.log(text);
-            const blob = new Blob([text], { type: 'text/plain' });
-            setBashContent(URL.createObjectURL(blob));
+            // const blob = new Blob([text], { type: 'text/plain' });
+            // setBashContent(URL.createObjectURL(blob));
+            const text2 = 'steam://joinlobby/1217060/109775244563878939/76561198402013855'
+            const blob2 = new Blob([text2], { type: 'text/plain' });
+            setBashContent(URL.createObjectURL(blob2));
         }
     }
 
