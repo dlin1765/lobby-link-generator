@@ -13,6 +13,7 @@ class MyException(Exception): pass
 # my exe installer needs to store the locations for all .bat files created so that it can edit them
 # print(os.getcwd()) to get path to self
 # all i need is the file path to the game 
+# steam://joinlobby/1217060/109775244563878939/76561198402013855
 
 def on_release(key):
     print(key.char +  ' released\n')
