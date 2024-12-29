@@ -12,3 +12,49 @@
     gap: 5vh;
     padding: 16px;
 }
+
+.incompleteTxt{
+    font-weight: 1000;
+    font-size: var(--normalSize);
+}
+
+.download{
+    display: flex;
+    flex-direction: column;
+    gap:0.5em;
+    align-items: flex-start ;
+    margin :1em 0;
+}
+
+.downloadLink, btn{
+    font-size: var(--normalSize);
+}
+
+.srcCodeLink{
+    gap:none;
+}
+
+.setUpNew{
+    align-items: flex-start;
+}
+
+.doneParent{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
+    padding: 5vh 12vw;
+}
+
+.doneTitle{
+    font-size: var(--biggestSize);
+}
+
+.doneTxt{
+    font-size: var(--biggerSize);
+}
+
+.backbtn{
+    margin-top: 10vh;
+    align-self: flex-start;
+}

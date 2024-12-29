@@ -1,7 +1,22 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Header from './Header';
 import InstructionsSection from './InstructionsSection';
 import InputComponent from './InputComponent';
+
+import steamURLVid from '../assets/steamprofliedemo.mp4';
+import steamProfileVid from '../assets/steamdetailsdemo.mp4';
+import steamLaunchOptionsVid from '../assets/steamlaunchoption.mp4';
+import steamGameNameVid from '../assets/steamgamenamedemo.mp4';
+import steamGamePathVid from '../assets/steamgamepathdemo.mp4';
+import moveFilesVid from '../assets/movingfilesdemo.mp4';
+
+import profileImg from '../assets/profiledemo.png';
+import profileDetailsImg from '../assets/profiledetailsdemo.png';
+import launchOptionImg from '../assets/launchoptiondemo.png';
+import gameNameImg from '../assets/gamepathdemo.png';
+import gamePathImg from '../assets/steamgamepathdemo.png';
+import moveImg from '../assets/moveImg.png';
 //import executable from '../assets/lobby-generator.exe';
 // import fileContent from '../assets/lobby-generator.py';
 import '../styles/LandingPage.css';
@@ -15,7 +30,7 @@ import '../styles/LandingPage.css';
 const stepText = [
     'Step 1: Ensure steam profile is public',
     'Step 2: Copy and paste your steam profile url',
-    'Step 3: Copy and paste this command into your Steam Launch options',
+    'Step 3: Pick a game and paste this command into the Steam launch options',
     'Step 4: Find and enter the name of the executable file (the game file itself)',
     'Step 5: Copy the path to the folder the game is in',
     'Step 6: Download these two files and put them in the file location you specified in the previous step',
@@ -33,7 +48,16 @@ const step1Divs = step1Instructions.map((items, i) => <div className='txt' key={
 const step2Divs = step2Instructions.map((items, i) => <div className='txt' key={i}>{items}</div>);
 const step3Divs = step3Instructions.map((items, i) => <div className='txt' key={i}>{items}</div>);
 const step4Divs = step4Instructions.map((items, i) => <div className='txt' key={i}>{items}</div>);
-const step5Divs = step5Instructions.map((items, i) => <div className='txt' key={i}>{items}</div>);
+const step5Divs = step5Instructions.map((items, i) => 
+    <div className='txt' key={i}>{items}</div>)
+;
+
+const step1VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamProfileVid} poster = {profileDetailsImg}></video>;
+const step2VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamURLVid} poster={profileImg}></video>;
+const step3VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamLaunchOptionsVid} poster ={launchOptionImg}></video>;
+const step4VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamGameNameVid} poster = {gameNameImg}></video>;
+const step5VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamGamePathVid} poster = {gamePathImg}></video>;
+const step6VidFiles = <video autoPlay muted loop className = 'stepVid' src={moveFilesVid} poster = {moveImg}></video>;
 
 function LandingPage(){
     const [fieldText, setFieldText] = useState('');
@@ -54,6 +78,10 @@ function LandingPage(){
     function moveBackwards(){
         setStepNum(stepNum - 1);
     }
+
+    function moveToNewSetup(){
+        setStepNum(2);
+    }
     
     function getFormChange(e){
         setFieldText(e.target.value);
@@ -73,6 +101,7 @@ function LandingPage(){
             stepText={stepText[0]}
             instructions={step1Divs}
             inputFields={[]}
+            stepVids={step1VidFiles}
             inputFunctions={[moveForwards, ()=>{}]}
             stepNum={0}
         />,
@@ -82,13 +111,14 @@ function LandingPage(){
             inputFields={
                 <div className="inputParent">
                     <div className="input">
-                        <div className="inputTxt">{'Steam URL'}</div>
+                        <div className="inputTxt">{'Steam URL:'}</div>
                         <div className="inputField">
-                            <input type="text" className="steamURL" onChange={getFormChange}/>
+                            <input type="text" className="steamURL" onChange={getFormChange} value={fieldText}></input>
                         </div>
                     </div>
                 </div>
             }
+            stepVids={step2VidFiles}
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum ={1}
         />,
@@ -98,6 +128,7 @@ function LandingPage(){
             inputFields={[]}
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum ={2}
+            stepVids={step3VidFiles}
         />,
         <InstructionsSection
             stepText={stepText[3]}
@@ -105,29 +136,31 @@ function LandingPage(){
             inputFields={
                 <div className="inputParent">
                     <div className="input">
-                        <div className="inputTxt">{'Game name'}</div>
+                        <div className="inputTxt">{'Game name:'}</div>
                         <div className="inputField">
-                            <input type="text" className="gameName" onChange={getFormChange3}/>
+                            <input type="text" className="gameName" onChange={getFormChange3} value ={gameName}/>
                         </div>
                     </div>
                 </div>
             }
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum ={3}
+            stepVids={step4VidFiles}
         />,
         <InstructionsSection 
             stepText={stepText[4]}
             instructions={step5Divs}
             inputFields={
                 <div className="input">
-                    <div className="inputTxt">{'Path to game'}</div>
+                    <div className="inputTxt">{'Path to game:'}</div>
                     <div className="inputField">
-                        <input type="text" className="gamePath" onChange={getFormChange2}/>
+                        <input type="text" className="gamePath" onChange={getFormChange2} value ={fieldText2}/>
                     </div>
                 </div>
             }
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum={4}
+            stepVids={step5VidFiles}
         />,
         <InstructionsSection 
             stepText={stepText[5]}
@@ -135,18 +168,40 @@ function LandingPage(){
             inputFields={[]}
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum={5}
+            stepVids={step6VidFiles}
         >
             <div className="lastStepTxt">
-                This is a file that tells your computer to open the game and the lobby generator application to open
+                lobby-gen.bat tells your computer to open the game and the lobby generator application to open
             </div>
             {fieldText != '' && fieldText2 != '' && gameName != '' ? 
-                <div>
-                    <a href={bashContent} download={'lobby-gen.bat'}>lobby-gen.bat</a>
-                    <div className="lastStepTxt">Preview: </div>
-                    <div className = 'preview'>{bashText}</div>
+                <div className = 'download'>
+                    <a href={bashContent} download={'lobby-gen.bat'} className='downloadLink btn'>Download lobby-gen.bat</a>
+                    
                 </div>
             : 
-                <div>Missing either Steam URL, game path, or game name</div>
+                <div className='incompleteTxt'>
+                    <div className="incompleteTxt">You missed a step! We didn't get either your Steam URL, game path, or game name</div>
+                    <div className="incompleteTxt">Go back to previous steps!</div>
+                </div>
+
+            }
+            <div className="lastStepTx">
+                <div>
+                    lobby-generator.exe is the program that grabs your Steam lobby link when you press Control + C
+                </div>
+                <a className='srcCodeLink'> (source code)</a>
+            </div>
+           
+            {fieldText != '' && fieldText2 != '' && gameName != '' ? 
+                <div className = 'download'>
+                    {/*<a href={bashContent} download={'lobby-gen.bat'} className='downloadLink btn'>Download lobby-generator.exe</a>*/}
+                    <Link to='/src/assets/lobby-generator.exe' className ='downloadLink btn' download={'lobby-generator.exe'} target='_blank'>Download lobby-generator.exe</Link>
+                </div>
+            : 
+                <div className='incompleteTxt'>
+                    <div className="incompleteTxt">You missed a step! We didn't get either your Steam URL, game path, or game name</div>
+                    <div className="incompleteTxt">Go back to previous steps!</div>
+                </div>
 
             }
             {/*{fieldText != '' && fieldText2 != '' && gameName != '' ? 
@@ -164,17 +219,24 @@ function LandingPage(){
             
 
         </InstructionsSection>,
-        <InstructionsSection
-            stepText={stepText[6]}
-            instructions={['Everything should be good to go! You can close this tab or set it up for other games.']}
-            inputFunctions={[()=>{}, moveBackwards]}
-            stepNum={6}
-        >
-            <div>
-                Set up for another game
+        <div className="doneParent">
+            <div className="doneTitle">
+                You're done!
             </div>
-            
-        </InstructionsSection>
+            <div className="doneTxt">
+                You can close this tab now or set it up for a different game
+            </div>
+            <button className='setUpNew btn' onClick={moveToNewSetup}>
+                Set up for another game
+            </button>
+            <button 
+                    className='backbtn'
+                    onClick={moveBackwards}
+                >
+                    Previous
+            </button>
+        </div>,
+        
 
     ]
 
@@ -231,7 +293,9 @@ function LandingPage(){
         <>
             <Header/>
             {
-                renderStepState()
+                
+                    renderStepState()
+                
             }
             <div className="buttons">
             </div>

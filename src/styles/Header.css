@@ -1,12 +1,12 @@
 .headerFlex{
     display: flex;
+    height: var(--headerHeight);
 }
 
 .headerParent{
     background-color: var(--headerColor);
     display: flex;
     flex:1 1 0;
-    height: 5vh;
     align-items: center;
     justify-content: space-between;
     padding: 0 12vw;

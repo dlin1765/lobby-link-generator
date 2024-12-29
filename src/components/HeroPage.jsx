@@ -12,7 +12,7 @@ function HeroPage(){
                     <div className="heroTextContainer">
                         <div className="heroTag">Quick easy lobbies.</div>
                         <div className="heroDescription">Create steam lobby links with just a few key strokes</div>
-                        <Link to ='/setup'>
+                        <Link to ='/setup' className="heroLink">
                             GET STARTED
                         </Link>
                     </div>
