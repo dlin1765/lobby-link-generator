@@ -26,6 +26,7 @@ import '../styles/LandingPage.css';
 // const step2Input = <input type="text" className="steamURL" onChange={getFormChange}/>
 
 // const stepDivs = stepText.map(steps => <div className='stepText'>{steps}</div>)
+const srcURL = 'https://github.com/dlin1765/tekken-lobby-link-generator/blob/main/src/assets/lobby-generator.py';
 
 const stepText = [
     'Step 1: Ensure steam profile is public',
@@ -113,7 +114,7 @@ function LandingPage(){
                     <div className="input">
                         <div className="inputTxt">{'Steam URL:'}</div>
                         <div className="inputField">
-                            <input type="text" className="steamURL" onChange={getFormChange} value={fieldText}></input>
+                            <input type="text" className="steamURL txtInput" onChange={getFormChange} value={fieldText}></input>
                         </div>
                     </div>
                 </div>
@@ -138,7 +139,7 @@ function LandingPage(){
                     <div className="input">
                         <div className="inputTxt">{'Game name:'}</div>
                         <div className="inputField">
-                            <input type="text" className="gameName" onChange={getFormChange3} value ={gameName}/>
+                            <input type="text" className="gameName txtInput" onChange={getFormChange3} value ={gameName}/>
                         </div>
                     </div>
                 </div>
@@ -154,7 +155,7 @@ function LandingPage(){
                 <div className="input">
                     <div className="inputTxt">{'Path to game:'}</div>
                     <div className="inputField">
-                        <input type="text" className="gamePath" onChange={getFormChange2} value ={fieldText2}/>
+                        <input type="text" className="gamePath txtInput" onChange={getFormChange2} value ={fieldText2}/>
                     </div>
                 </div>
             }
@@ -189,7 +190,7 @@ function LandingPage(){
                 <div>
                     lobby-generator.exe is the program that grabs your Steam lobby link when you press Control + C
                 </div>
-                <a className='srcCodeLink'> (source code)</a>
+                <a className='srcCodeLink' href={srcURL} target='_blank' rel="noopener noreferrer"> (source code)</a>
             </div>
            
             {fieldText != '' && fieldText2 != '' && gameName != '' ? 

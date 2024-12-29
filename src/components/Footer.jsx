@@ -2,12 +2,12 @@ import { Link } from 'react-router-dom';
 import '../styles/Header.css'
 import svgLogo from '../assets/twitter-logo.svg'
 
-function Header(){
+function Footer(){
     return(
         <>
-            <div className="headerFlex">
-                <div className="headerParent">
-                    <Link className="headerTitle" to='/'>LOBBY LINKER</Link>
+            <div className="footerFlex">
+                <div className="footerParent">
+                    <Link className="footerTitle" to='/'>developed by Daniel Lin / CatPie</Link>
                     <div className="contactContainer">
                 
                         <a className ='logoContainer'
@@ -15,12 +15,9 @@ function Header(){
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <a className='contact'>
-                                CONTACT
+                            <a href="https://github.com/dlin1765/tekken-lobby-link-generator" className='contact' target="_blank" rel="noopener noreferrer">
+                                GITHUB
                             </a>
-                            <object data= {svgLogo} type="image/svg+xml" className='logo'>
-                
-                            </object>
                         </a>
                     </div>
                 </div>
@@ -29,4 +26,4 @@ function Header(){
     );
 }
 
-export default Header
+export default Footer

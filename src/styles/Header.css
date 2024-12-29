@@ -3,6 +3,11 @@
     height: var(--headerHeight);
 }
 
+.footerFlex{
+    display: flex;
+    height: var(--headerHeight);
+}
+
 .headerParent{
     background-color: var(--headerColor);
     display: flex;
@@ -12,8 +17,25 @@
     padding: 0 12vw;
 }
 
+.footerParent{
+    background-color: var(--mainColor);
+    display: flex;
+    flex:1 1 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12vw;
+}
+
 .headerTitle{
     color: var(--textColor);
+    font-size: var(--bigSize);
+    letter-spacing: 1.5px;
+}
+
+.footerTitle{
+    color: var(--textColor);
+    font-size: var(--normalSize);
+    letter-spacing: 0.2px;
 }
 
 .contactContainer{
@@ -25,6 +47,8 @@
 
 .contact{
     color: var(--textColor);
+    font-size: var(--bigSize);
+    letter-spacing: 1.5px;
 }
 
 .logoContainer{

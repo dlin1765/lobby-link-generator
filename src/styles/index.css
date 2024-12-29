@@ -9,10 +9,14 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
+  /*
   --mainColor: #2f3e46;
   --mainColorShade: #2C3A41;
   --headerColor: #171F23;
+  */
+  --mainColor:#1b2838;
+  --mainColorShade: #2a475e;
+  --headerColor: #171a21;
   --specialTextColor: #3a86ff;
   --textColor:white;
   font-size: 16px;

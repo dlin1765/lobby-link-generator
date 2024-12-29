@@ -13,6 +13,12 @@
     padding: 16px;
 }
 
+.txtInput{
+    height: 2em;
+    width: 150%;
+    border-radius: 1px;
+}
+
 .incompleteTxt{
     font-weight: 1000;
     font-size: var(--normalSize);
