@@ -1,3 +1,4 @@
+import Footer from './Footer';
 import '../styles/InstructionsSection.css'
 
 function InstructionsSection({stepText, instructions, inputFields, inputFunctions, stepVids, stepNum, children}){
@@ -40,7 +41,7 @@ function InstructionsSection({stepText, instructions, inputFields, inputFunction
                     }
                 </div>
             </div>
-            
+          
             
             
             

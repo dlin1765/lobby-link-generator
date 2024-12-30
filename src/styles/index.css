@@ -19,12 +19,15 @@
   --headerColor: #171a21;
   --specialTextColor: #3a86ff;
   --textColor:white;
-  font-size: 16px;
-  --normalSize: 16px;
-  --bigSize: 25.888px;
-  --biggestSize: 41.866px;
+    font-size: 16px;
+  --normalSize: clamp(0.75rem, 0.6863rem + 0.2614vw, 1rem);
+  --bigSize: clamp(1rem, 0.8425rem + 0.6463vw, 1.618rem);
+  --biggestSize: clamp(1.618rem, 1.3634rem + 1.0443vw, 2.616625rem);
   --headerHeight: 7vh;
-  --bodyHeight: 93vh;
+  --bodyHeight: 86vh;
+  --paddingLength: calc(15.6rem - clamp(1.2rem, 29.4857rem + -23.5714vw, 14.4rem));
+  --paddingLeft: calc(21.6rem - clamp(7.2rem, 22.6286rem + -12.8571vw, 14.4rem));
+  --paddingRight: calc(21.6rem - clamp(7.2rem, 22.6286rem + -12.8571vw, 14.4rem)): 
 }
 
 a {
@@ -36,8 +39,11 @@ a:hover {
   color: #535bf2;
 }
 
+.contact:hover{
+  color: #535bf2;
+}
+
 body {
-  display: flex;
   margin: 0;
 }
 
@@ -78,5 +84,17 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.L{
+  font-size: clamp(1.618rem, 0.4767rem + 1.7833vw, 2.616625rem);
+}
+
+.M{
+  font-size: var(--bigSize);
+}
+
+.S{
+  font-size: var(--normalSize);
 }
 

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import Footer from './Footer';
 import InstructionsSection from './InstructionsSection';
 import InputComponent from './InputComponent';
 
@@ -298,8 +299,7 @@ function LandingPage(){
                     renderStepState()
                 
             }
-            <div className="buttons">
-            </div>
+            <Footer/>
         </>
     );
 }

@@ -1,0 +1,31 @@
+.faqWrapper{
+    display:flex;
+    flex-direction: column;
+    background-color: var(--mainColor);
+    padding: 10vh 0;
+}
+
+.faqParent{
+    display:flex;
+    flex-direction: column;
+    flex: 1 1 0;
+    padding: 0 var(--paddingLength);
+}
+
+.faqTitle{
+    font-size: var(--biggestSize);
+    margin-bottom: 1em;
+}
+
+.questionList{
+    display:flex;
+    flex-direction: column;
+    gap:5em;
+}
+
+.q{
+    font-weight: 550;
+    letter-spacing: 0.2px;
+    margin-bottom: .5em;
+    font-size: var(--bigSize);
+}

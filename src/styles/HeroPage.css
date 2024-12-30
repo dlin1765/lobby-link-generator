@@ -1,10 +1,10 @@
 .mainBody{
     background-color: var(--mainColor);
-    padding: 10vh 12vw;
+    padding: 10vh var(--paddingLength);
 }
 
 .mainBodyWrapper{
-    height: 86vh;
+    
     background-color: var(--mainColorShade);
     display:flex;
     flex-direction: column;
@@ -20,7 +20,7 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
-    gap:0.5em;
+    gap:1em;
     align-items: flex-start;
 }
 
@@ -35,13 +35,17 @@
 .heroLink{
     font-size: var(--bigSize);
     border-radius: 10px;
-    border: 4px solid #646cff;
+    background-color: #646cff;
+    border: 5px solid #646cff;
     padding: 0.3em .6em;
     transition: border-color 0.25s;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;
+    color:white;
 }
 
 .heroLink:hover{
     border-color: #535bf2;
+    color:white;
 }
 
 .heroDemo{
@@ -58,16 +62,46 @@
 .infoSectionParent{
     display:flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    gap: 2em;
     background-color: var(--mainColorShade);
-    padding: 10vh 12vw;
+    padding: 10vh var(--paddingLength);
     margin: auto 0;
+    text-align: center;
 }
 
 .infoTitle{
     font-size: var(--bigSize);
+    margin-bottom: 1em;
+}
 
+.infoTxt{
+    font-size: var(--normalSize);
+}
+
+.infoSectionParent2{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+    background-color: var(--mainColor);
+    padding: 10vh var(--paddingLength);
+    margin: auto 0;
+    text-align: center;
+}
+
+.cards{
+    display:flex;
+    justify-content: space-between;
+}
+
+.infoCard{
+    display:flex;
+    flex-direction: column;
+    width: 30%;
+    border-radius: 10px;
+    padding: 1em .7em;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 5px;;
 }
 
 @media only screen and (max-width: 600px){
@@ -79,27 +113,25 @@
         width: 100%;   
     }
     
-    .heroVid{
-        width: 100%;
-        height: auto;
-        display: block;
-    }
-}
-
-
-
-@media only screen and (max-width: 600px){
-    .heroSectionContainer{
+    .mainBodyWrapper{
+        background-color: var(--mainColorShade);
+        display:flex;
         flex-direction: column;
+        height: auto;
     }
 
-    .heroDemo{
-        width: 100%;   
-    }
-    
     .heroVid{
         width: 100%;
         height: auto;
         display: block;
+    }
+
+    .cards{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .infoCard{
+        width:80%;
     }
 }

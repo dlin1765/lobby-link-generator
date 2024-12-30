@@ -7,21 +7,33 @@ function Footer(){
         <>
             <div className="footerFlex">
                 <div className="footerParent">
-                    <Link className="footerTitle" to='/'>developed by Daniel Lin / CatPie</Link>
+                    <a className ='logoContainer'
+                        href='https://twitter.com/WeenDaniel'
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <div className='contact'>
+                            CONTACT
+                        </div>
+                        <object data= {svgLogo} type="image/svg+xml" className='logo'>
+            
+                        </object>
+                    </a>
                     <div className="contactContainer">
                 
                         <a className ='logoContainer'
-                            href='https://twitter.com/WeenDaniel'
+                            href='https://github.com/dlin1765/tekken-lobby-link-generator'
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            <a href="https://github.com/dlin1765/tekken-lobby-link-generator" className='contact' target="_blank" rel="noopener noreferrer">
+                            <div className='contact'>
                                 GITHUB
-                            </a>
+                            </div>
                         </a>
                     </div>
                 </div>
             </div>
+            
         </>
     );
 }
