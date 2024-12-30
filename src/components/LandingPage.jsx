@@ -27,7 +27,7 @@ import '../styles/LandingPage.css';
 // const step2Input = <input type="text" className="steamURL" onChange={getFormChange}/>
 
 // const stepDivs = stepText.map(steps => <div className='stepText'>{steps}</div>)
-const srcURL = 'https://github.com/dlin1765/tekken-lobby-link-generator/blob/main/src/assets/lobby-generator.py';
+const srcURL = 'https://github.com/dlin1765/lobby-link-generator/blob/main/src/assets/lobby-generator.py';
 
 const stepText = [
     'Step 1: Ensure steam profile is public',

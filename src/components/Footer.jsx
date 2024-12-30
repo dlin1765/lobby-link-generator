@@ -22,7 +22,7 @@ function Footer(){
                     <div className="contactContainer">
                 
                         <a className ='logoContainer'
-                            href='https://github.com/dlin1765/tekken-lobby-link-generator'
+                            href='https://github.com/dlin1765/lobby-link-generator'
                             target="_blank"
                             rel="noopener noreferrer"
                         >
