@@ -264,7 +264,7 @@ function LandingPage(){
                     pathConvert = pathConvert + fieldText2[i];
                 }
             }
-            const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nlobby-generator.exe ${fieldText} ${gameName} ${gamePath}`;
+            const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nstart lobby-generator.exe \"${fieldText}\" \"${gameName}\" \"${fieldText2}\"`;
             const blob = new Blob([text], { type: 'text/plain' });
             setBashText(text);
             setBashContent(URL.createObjectURL(blob));
@@ -294,9 +294,6 @@ function LandingPage(){
                 return steps[6];
         }
     }
-
-    
-
 
     return(
         <>
