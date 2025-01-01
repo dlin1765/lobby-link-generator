@@ -8,7 +8,7 @@ import SteamRedirect from './components/SteamRedirect'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  //steam://joinlobby/2708450/109775244951239975/76561198402013855
   return (
     <>
       <BrowserRouter>
@@ -16,7 +16,7 @@ function App() {
           <Route path='/' element={<HeroPage/>}/>
           <Route path='/setup' element={<LandingPage/>}/>
           <Route path='/troubleshooting' element={<Troubleshooting/>}/>
-          <Route path ='/:link' element = {<HeroPage/>}/>
+          <Route path ='/to/*' element = {<HeroPage/>}/>
         </Routes>
       </BrowserRouter>
     </>

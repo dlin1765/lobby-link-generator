@@ -7,7 +7,7 @@ function Header(){
         <>
             <div className="headerFlex">
                 <div className="headerParent">
-                    <Link className="headerTitle" to='/'>LOBBY LINKER</Link>
+                    <Link className="headerTitle" to='/'>LOBBY LINKABLE</Link>
                     <div className="contactContainer">
                 
                         <Link className ='logoContainer'

@@ -31,7 +31,7 @@ const srcURL = 'https://github.com/dlin1765/lobby-link-generator/blob/main/src/a
 
 const stepText = [
     'Step 1: Ensure steam profile is public',
-    'Step 2: Copy and paste your steam profile url',
+    'Step 2: Copy and paste your Steam profile url',
     'Step 3: Pick a game and paste this command into the Steam launch options',
     'Step 4: Find and enter the name of the executable file (the game file itself)',
     'Step 5: Copy the path to the folder the game is in',
@@ -42,7 +42,7 @@ const stepText = [
 const step1Instructions = ['For the application to work, your Steam profile needs to be public', 'Navigate to your Steam profile and go to: Edit Profile > Privacy Settings. Set both "My Profile" and "Game Details" to public.']
 const step2Instructions = ['This is so the application can view your profile and obtain the lobby link', 'Navigate to your Steam profile and click on the URL on the top to copy it to your clipboard']
 const step3Instructions = ['lobby-gen.bat %COMMAND%','This is so the program automatically launches when you open your game', 'Go to Steam and find the little settings cog icon for the game you want to set it up for, then click Properties > General > Launch Options ']
-const step4Instructions = ['To start the game with the program we need the name of the game executable file', 'In the same Steam properties window, click Properties > Installed Files','Click the Browse button on where it says the size of the installation, this will open your file explorer.', 'Usually the application is in the first folder, but you might have to dig around in the rest of the folders if you don\'t a .exe file right away. Once you\'ve found it, type or copy the name of the file EXACTLY. Do NOT add ".exe" after.', 'Keep this window open.'];
+const step4Instructions = ['To start the game with the program we need the name of the game executable file (include spaces or symbols)', 'In the same Steam properties window, click Properties > Installed Files','Click the Browse button on where it says the size of the installation, this will open your file explorer.', 'Usually the application is in the first folder, but you might have to dig around in the rest of the folders if you don\'t a .exe file right away. Once you\'ve found it, type or copy the name of the file EXACTLY. Do NOT add ".exe" after.', 'Keep this window open.'];
 const step5Instructions = ['We will also need the path to the folder the game exe is in','In the same file explorer window, click to the right of the last folder in the top middle bar to highlight the location. Lastly, Control + C to copy the address, and Control + V here.', 'It might look something like this: C:\\Program Files (x86)\\Steam\\steamapps\\common\\TEKKEN 8']
 const step6Instructions = ['lobby-gen.bat', ]
 
@@ -54,12 +54,12 @@ const step5Divs = step5Instructions.map((items, i) =>
     <div className='txt' key={i}>{items}</div>)
 ;
 
-const step1VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamProfileVid} poster = {profileDetailsImg}></video>;
-const step2VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamURLVid} poster={profileImg}></video>;
-const step3VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamLaunchOptionsVid} poster ={launchOptionImg}></video>;
-const step4VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamGameNameVid} poster = {gameNameImg}></video>;
-const step5VidFiles = <video autoPlay muted loop className = 'stepVid' src={steamGamePathVid} poster = {gamePathImg}></video>;
-const step6VidFiles = <video autoPlay muted loop className = 'stepVid' src={moveFilesVid} poster = {moveImg}></video>;
+const step1VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamProfileVid} poster = {profileDetailsImg}></video>;
+const step2VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamURLVid} poster={profileImg}></video>;
+const step3VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamLaunchOptionsVid} poster ={launchOptionImg}></video>;
+const step4VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGameNameVid} poster = {gameNameImg}></video>;
+const step5VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGamePathVid} poster = {gamePathImg}></video>;
+const step6VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={moveFilesVid} poster = {moveImg}></video>;
 
 function LandingPage(){
     const [fieldText, setFieldText] = useState('');
@@ -148,7 +148,11 @@ function LandingPage(){
             inputFunctions={[moveForwards, moveBackwards]}
             stepNum ={3}
             stepVids={step4VidFiles}
-        />,
+        >
+            <div className="lastStepTxt">
+                <strong>Example: TEKKEN 8</strong>
+            </div>
+        </InstructionsSection>,
         <InstructionsSection 
             stepText={stepText[4]}
             instructions={step5Divs}
@@ -172,6 +176,9 @@ function LandingPage(){
             stepNum={5}
             stepVids={step6VidFiles}
         >
+            <div className="lastStepTxt">
+                Make sure the file names stay like described below (no numbers)
+            </div>
             <div className="lastStepTxt">
                 lobby-gen.bat tells your computer to open the game and the lobby generator application to open
             </div>
@@ -257,7 +264,7 @@ function LandingPage(){
                     pathConvert = pathConvert + fieldText2[i];
                 }
             }
-            const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nlobby-generator.exe ${fieldText}`;
+            const text = `@ECHO OFF\ncd \"${pathConvert}\"\nstart \"${gameName}.exe\" \"${pathConvert}\\${gameName}.exe\"\nlobby-generator.exe ${fieldText} ${gameName} ${gamePath}`;
             const blob = new Blob([text], { type: 'text/plain' });
             setBashText(text);
             setBashContent(URL.createObjectURL(blob));
