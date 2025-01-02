@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from './Header';
 import Footer from './Footer';
 import InstructionsSection from './InstructionsSection';
+import exe from '../assets/lobby-generator.exe';
 import InputComponent from './InputComponent';
 
 import steamURLVid from '../assets/steamprofliedemo.mp4';
@@ -198,7 +199,7 @@ function LandingPage(){
                 <div>
                     lobby-generator.exe is the program that grabs your Steam lobby link when you press Control + C
                 </div>
-                <a className='srcCodeLink' href={srcURL} target='_blank' rel="noopener noreferrer"> (source code)</a>
+                <a className='srcCodeLink' href={exe} target='_blank' rel="noopener noreferrer"> (source code)</a>
             </div>
            
             {fieldText != '' && fieldText2 != '' && gameName != '' ? 
