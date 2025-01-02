@@ -7,8 +7,8 @@ import '../styles/HeroPage.css';
 function HeroPage(){
     let {"*":token} = useParams();
     if(token != null && token.length != 0){
-        const steamPos = token.search('steam');
-        if(steamPos != -1){
+        let protocol = token.substring(0, 8);
+        if(protocol == 'steam://'){
             console.log(token);
             window.location.replace(token);
         }
