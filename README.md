@@ -24,7 +24,7 @@
 </div>
 
 # Video Demo
-https://github.com/user-attachments/assets/d04a9db2-0b12-432b-a1a0-23f9582eb255
+https://github.com/user-attachments/assets/d11c5077-6298-4f74-95c7-fe9de5a16e78
 
 # Notices
 
