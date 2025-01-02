@@ -96,8 +96,6 @@ function LandingPage(){
     function getFormChange3(e){
         setGameName(e.target.value);
     }
-    
-
 
     const steps = [
         <InstructionsSection 
@@ -199,35 +197,19 @@ function LandingPage(){
                 <div>
                     lobby-generator.exe is the program that grabs your Steam lobby link when you press Control + C
                 </div>
-                <a className='srcCodeLink' href={exe} target='_blank' rel="noopener noreferrer"> (source code)</a>
+                <a className='srcCodeLink' href={srcURL} target='_blank' rel="noopener noreferrer"> (source code)</a>
             </div>
            
             {fieldText != '' && fieldText2 != '' && gameName != '' ? 
                 <div className = 'download'>
-                    {/*<a href={bashContent} download={'lobby-gen.bat'} className='downloadLink btn'>Download lobby-generator.exe</a>*/}
-                    <Link to='/src/assets/lobby-generator.exe' className ='downloadLink btn' download={'lobby-generator.exe'} target='_blank'>Download lobby-generator.exe</Link>
+                    <a href={exe} download={'lobby-generator.exe'} className='downloadLink btn'>Download lobby-generator.exe</a>
                 </div>
             : 
                 <div className='incompleteTxt'>
                     <div className="incompleteTxt">You missed a step! We didn't get either your Steam URL, game path, or game name</div>
                     <div className="incompleteTxt">Go back to previous steps!</div>
                 </div>
-
             }
-            {/*{fieldText != '' && fieldText2 != '' && gameName != '' ? 
-                <div>
-                    <a href={'../assets/lobby-generator.exe'} download={'lobby-generator.exe'}>lobby-generator.exe</a>
-                    <div className="lastStepTxt">Preview: </div>
-                    <div className = 'preview'>
-                        <pre>{fileContent}</pre>
-                    </div>
-                </div>
-            : 
-                <div>Missing either Steam URL, game path, or game name</div>
-
-            }*/}
-            
-
         </InstructionsSection>,
         <div className="doneParent">
             <div className="doneTitle">
