@@ -1,6 +1,6 @@
 import Header from "./Header";
 import Footer from './Footer';
-import demoVid from '../assets/steamdemo.mp4';
+import demoVid from '../assets/lobbylinkabledemo.mp4';
 import { Link, useParams} from "react-router-dom";
 import '../styles/HeroPage.css';
 
@@ -34,6 +34,7 @@ function HeroPage(){
                                 autoPlay
                                 muted
                                 loop
+                                playsInline
                             >
                             </video>
                         </div>
