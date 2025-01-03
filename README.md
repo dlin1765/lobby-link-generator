@@ -62,14 +62,14 @@ To make the Steam lobby link clickable, I used React Router and URL parameters t
 ```ruby
 let {"*":token} = useParams();
 if(token != null && token.length != 0){
-    const steamPos = token.search('steam');
-    if(steamPos != -1){
-        console.log(token);
-        window.location.replace(token);
-    }
-    else{
-        console.log('not a lobby link');
-    }
+  let protocol = token.substring(0, 8);
+  if(protocol == 'steam://'){
+      console.log(token);
+      window.location.replace(token);
+  }
+  else{
+      console.log('not a lobby link');
+  }
 }
 ```
 
