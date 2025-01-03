@@ -3,19 +3,30 @@ import Footer from './Footer';
 import demoVid from '../assets/lobbylinkabledemo.mp4';
 import { Link, useParams} from "react-router-dom";
 import '../styles/HeroPage.css';
+const numRegex = '\d';
+let isValid = false;
+
+function isOnlyNums(value) {
+    return /^\d+$/.test(value);
+}
 
 function HeroPage(){
     let {"*":token} = useParams();
     if(token != null && token.length != 0){
-        let protocol = token.substring(0, 8);
-        if(protocol == 'steam://'){
-            console.log(token);
-            window.location.replace(token);
-        }
-        else{
-            console.log('not a lobby link');
-        }
+        isValid = true;
+        let params = token.split('/');
+        console.log(params);
+        params.forEach(nums =>{
+            if(!isOnlyNums(nums)){
+                isValid= false;
+            }
+        })
     }
+    if(isValid){
+        window.location.replace('steam://joinlobby/' + token);
+    }
+        
+    
     return(
         <>
             <Header/>

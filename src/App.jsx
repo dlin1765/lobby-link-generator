@@ -16,7 +16,7 @@ function App() {
           <Route path='/' element={<HeroPage/>}/>
           <Route path='/setup' element={<LandingPage/>}/>
           <Route path='/troubleshooting' element={<Troubleshooting/>}/>
-          <Route path ='/to/*' element = {<HeroPage/>}/>
+          <Route path ='/to/steam://joinlobby/*' element = {<HeroPage/>}/>
         </Routes>
       </BrowserRouter>
     </>
