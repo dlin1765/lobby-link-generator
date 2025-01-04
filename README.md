@@ -59,19 +59,8 @@ You can make any Steam lobby link clickable by putting it at the end of https://
 In order for the program to launch automatically when you click play on your game on Steam, the Steam launch option %COMMAND% needs to be configured to run lobby-gen.bat, a batch file that opens both programs.
 
 To make the Steam lobby link clickable, I used React Router and URL parameters to keep the original form of the Steam lobby link intact. Even though the link is a bit long, I did this because it would allow people to manually make their Steam lobby links clickable without much effort. 
-```ruby
-let {"*":token} = useParams();
-if(token != null && token.length != 0){
-  let protocol = token.substring(0, 8);
-  if(protocol == 'steam://'){
-      console.log(token);
-      window.location.replace(token);
-  }
-  else{
-      console.log('not a lobby link');
-  }
-}
-```
+
+To prevent XSS attacks and to prevent people from using LobbyLinkable to route to malicious sites, the parameters are sanitized and verified to be a exactly the form of a lobby link before routing.
 
 # Setup
 
