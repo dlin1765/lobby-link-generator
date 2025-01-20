@@ -212,15 +212,17 @@ function LandingPage(){
             }
         </InstructionsSection>,
         <div className="doneParent">
-            <div className="doneTitle">
-                You're done!
+            <div className="doneMsg">
+                <div className="doneTitle">
+                    You're done!
+                </div>
+                <div className="doneTxt">
+                    You can close this tab now or set it up for a different game
+                </div>
+                <button className='setUpNew btn' onClick={moveToNewSetup}>
+                    Set up for another game
+                </button>
             </div>
-            <div className="doneTxt">
-                You can close this tab now or set it up for a different game
-            </div>
-            <button className='setUpNew btn' onClick={moveToNewSetup}>
-                Set up for another game
-            </button>
             <button 
                     className='backbtn'
                     onClick={moveBackwards}

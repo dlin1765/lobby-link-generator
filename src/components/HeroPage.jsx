@@ -15,7 +15,6 @@ function HeroPage(){
     if(token != null && token.length != 0){
         isValid = true;
         let params = token.split('/');
-        console.log(params);
         params.forEach(nums =>{
             if(!isOnlyNums(nums)){
                 isValid= false;

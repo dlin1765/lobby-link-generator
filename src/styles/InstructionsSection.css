@@ -37,10 +37,11 @@
 .instructionWrapper{
     display:flex;
     flex-direction: column;
-    min-height:75vh;
+    min-height:76vh;
     padding: 5vh calc(15.6rem - clamp(1.2rem, 17.7647rem + -13.8039vw, 14.4rem));
     gap:1.5em;
     background-color: var(--mainColor);
+    justify-content: space-around;
 }
 
 .stepButtons{

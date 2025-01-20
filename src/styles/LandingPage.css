@@ -50,8 +50,16 @@
     gap: 1em;
     align-items: center;
     padding: 5vh var(--paddingLength);
-    height: 75vh;
+    height: 76vh;
     background-color: var(--mainColor);
+    justify-content: space-between;
+}
+
+.doneMsg{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    align-items: center;
 }
 
 .doneTitle{
