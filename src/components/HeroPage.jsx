@@ -46,6 +46,11 @@ function HeroPage(){
                                 loop
                                 playsInline
                             >
+                                <source
+                                    src={demoVid}
+                                    type="video/mp4"
+                                >
+                                </source>
                             </video>
                         </div>
                     </div>
