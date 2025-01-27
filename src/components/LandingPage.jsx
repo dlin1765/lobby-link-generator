@@ -55,12 +55,12 @@ const step5Divs = step5Instructions.map((items, i) =>
     <div className='txt' key={i}>{items}</div>)
 ;
 
-const step1VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamProfileVid} poster = {profileDetailsImg}></video>;
-const step2VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamURLVid} poster={profileImg}></video>;
-const step3VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamLaunchOptionsVid} poster ={launchOptionImg}></video>;
-const step4VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGameNameVid} poster = {gameNameImg}></video>;
-const step5VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGamePathVid} poster = {gamePathImg}></video>;
-const step6VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={moveFilesVid} poster = {moveImg}></video>;
+const step1VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamProfileVid} poster = {profileDetailsImg} type="video/mp4"></video>;
+const step2VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamURLVid} poster={profileImg} type="video/mp4"></video>;
+const step3VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamLaunchOptionsVid} poster ={launchOptionImg} type="video/mp4"></video>;
+const step4VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGameNameVid} poster = {gameNameImg} type="video/mp4"></video>;
+const step5VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={steamGamePathVid} poster = {gamePathImg} type="video/mp4"></video>;
+const step6VidFiles = <video autoPlay muted loop playsInline className = 'stepVid' src={moveFilesVid} poster = {moveImg} type="video/mp4"></video>;
 
 function LandingPage(){
     const [fieldText, setFieldText] = useState('');
